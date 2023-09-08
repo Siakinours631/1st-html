@@ -5,15 +5,17 @@ import discord
 
 # 'class' sert essentiellement à regrouper des fonctions, ici on en crée une pour le bot
 class GiveawayFarmerBot(discord.Client):
+    
     # Définit des attributs de classe, çad des variables accessible avec "self.nom_variable" ex "self.WonGiveawayMsgParts"
     WonGiveawayMsgParts = ["giveaway", "won", "congrats", "congratulations", "bravo", "gg", "gagner", "gagné", "give away"]
-    
-    # Si il y a un fichier qui s'appelle "GiveawayChannels.pkl" dans le même dossier que le script
+    GiveawayChannels = []
+
     if os.path.exists("GiveawayChannels.pkl"):
-        # Charge le fichier et définit "GiveawayChannels" sur celui ci
-        GiveawayChannels = pk.load("GiveawayChannels.pkl")
-    else:
-        GiveawayChannels = []
+        try:
+            with open("GiveawayChannels.pkl", "rb") as file:
+                GiveawayChannels = pk.load(file)
+        except (EOFError, pk.UnpicklingError):
+            print("Error loading data from GiveawayChannels.pkl. Using an empty list.")
 
     async def on_ready(self):
         '''
@@ -70,8 +72,13 @@ while True:
             # Rajoute le deuxième mot de INPUT a la liste de salon de giveaways
             GiveawayFarmerBot.GiveawayChannels.append(INPUT[1])
             # Sauvegarde la liste du salon de giveaway dans un fichier
-            pk.dump(GiveawayFarmerBot.GiveawayChannels, "GiveawayChannels.pkl")
+            with open("GiveawayChannels.pkl", "wb") as file:
+                pk.dump(GiveawayFarmerBot.GiveawayChannels, file)
         # Si la condition du "if" n'est pas respectée
         else:
             # Dit a l'utilisateur que le lien est invalide
             print("Lien invalide")
+            
+    if INPUT[0] == "CLEARCHANNELS":
+        GiveawayFarmerBot.GiveawayChannels = []
+        os.remove("GiveawayChannels.pkl")
