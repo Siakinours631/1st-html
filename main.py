@@ -1,4 +1,3 @@
-from typing import Any
 import pickle as pk
 import os
 from aiohttp.client_exceptions import ClientConnectorError
@@ -7,7 +6,7 @@ import discord
 # 'class' sert essentiellement à regrouper des fonctions, ici on en crée une pour le bot
 class GiveawayFarmerBot(discord.Client):
     # Définit des attributs de classe, çad des variables accessible avec "self.nom_variable" ex "self.WonGiveawayMsgParts"
-    WonGiveawayMsgParts = ["giveaway", "won", "congrats", "congratulations", "bravo", "gg", "gagner", "gagné"]
+    WonGiveawayMsgParts = ["giveaway", "won", "congrats", "congratulations", "bravo", "gg", "gagner", "gagné", "give away"]
     
     # Si il y a un fichier qui s'appelle "GiveawayChannels.pkl" dans le même dossier que le script
     if os.path.exists("GiveawayChannels.pkl"):
@@ -76,7 +75,3 @@ while True:
         else:
             # Dit a l'utilisateur que le lien est invalide
             print("Lien invalide")
-
-        
-
-        
