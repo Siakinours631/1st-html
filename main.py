@@ -9,7 +9,7 @@ class GiveawayFarmerBot(discord.Client):
         '''
         Cette fonction est appelée dès que le login est validée et que le bot est "prêt"
         '''
-        print("Enregistré en tant que: ", self.user)
+        print(f"Enregistré en tant que: {self.user}")
     
     async def on_message(message):
         '''
