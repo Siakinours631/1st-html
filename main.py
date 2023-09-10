@@ -36,7 +36,7 @@ class GiveawayFarmerBot(discord.Client):
         # Si le message qui vient d'être envoyer commence par "!giveaway"
         if message.content.startswith('!giveaway'):
             # Attend un nombre aléatoire choisit entre 1 et 5 secondes
-            await asyncio.sleep(random.randint(1, 5))  
+            await asyncio.sleep(random.randint(5, 10))  
             # Dit a l'utilisateur qu'on tente de réagir a un message de !giveaway avec l'url du message
             print(f"Tente de réagir a un message de !giveaway : {message.jump_url}")
             # Tente de réagir au message avec un emoji choisi aléatoirement parmis une liste d'emojis aléatoire
@@ -45,7 +45,7 @@ class GiveawayFarmerBot(discord.Client):
         # Si le message qui vient d'être envoyer commence par "!raffle"
         elif message.content.startswith('!raffle'):
             # Attend un nombre aléatoire choisit entre 1 et 5 secondes
-            await asyncio.sleep(random.randint(1, 5))  
+            await asyncio.sleep(random.randint(5, 10))  
             # Dit a l'utilisateur qu'on tente de réagir a un message de !raffle avec l'url du message
             print(f"Tente de réagir a un message de !raffle : {message.jump_url}")
             # Tente de réagir au message avec un emoji choisi aléatoirement parmis une liste d'emojis aléatoire
@@ -54,8 +54,8 @@ class GiveawayFarmerBot(discord.Client):
         # Si l'url du channel du message qui vient d'être envoyer est celui du salon rumble royale du discord HOSKY
         # TODO: Faire que ca check si celui qui envoit le msg est le bot Rumble Royale et pas le salon dans lequel le msg a été envoyer
         elif message.channel.jump_url == "https://discord.com/channels/903302807346630656/1048439777625657365":
-            # Attend un nombre aléatoire choisit entre 1 et 5 secondes
-            await asyncio.sleep(random.randint(1, 5))  
+            # Attend un nombre aléatoire choisit entre 5 et 10 secondes
+            await asyncio.sleep(random.randint(5, 10))  
             # Dit a l'utilisateur qu'on tente de réagir a un message de Rumble Royale avec l'url du message
             print(f"Tente de réagir a un message de Rumble Royale: {message.jump_url}")
             # Tente de réagir au message avec la première réaction du message çad l'emoji pour participer
