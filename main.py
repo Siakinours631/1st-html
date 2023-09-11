@@ -65,9 +65,14 @@ class GiveawayFarmerBot(discord.Client):
         retry_count = 0
         while retry_count < max_retries:
             try:
-                await msg.add_reaction(reaction_to_add)
-                print(f"Succès pour rajouter une réaction au message {msg.jump_url}")
-                break
+                if len(msg.reactions) > 0:
+                    await msg.add_reaction(msg.reactions[0])
+                    print(f"Succès pour rajouter une réaction au message {msg.jump_url}")
+                    break
+                else:
+                    await msg.add_reaction(reaction_to_add)
+                    print(f"Succès pour rajouter une réaction au message {msg.jump_url}")
+                    break
             except:
                 retry_count += 1
                 await asyncio.sleep(delay_seconds)
