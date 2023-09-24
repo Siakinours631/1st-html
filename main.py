@@ -2,6 +2,7 @@ import pickle as pk
 import os
 import asyncio
 from time import sleep
+from secrets import randbelow
 import random
 from aiohttp.client_exceptions import ClientConnectorError
 import discord
@@ -33,34 +34,12 @@ class GiveawayFarmerBot(discord.Client):
         Cette fonction est appelée dès qu'un message est envoyé dans n'importe quelle serveur sur lequel l'utilisateur est présent
         '''
 
-        # Si le message qui vient d'être envoyer commence par "/giveaway"
-        if message.content.startswith('/giveaway'):
-            # Attend un nombre aléatoire choisit entre 1 et 3 secondes
-            await asyncio.sleep(random.randint(1, 3))  
-            # Dit a l'utilisateur qu'on tente de réagir a un message de !giveaway avec l'url du message
-            print(f"Tente de réagir a un message de /giveaway : {message.jump_url}")
-            # Tente de réagir au message avec un emoji choisi aléatoirement parmis une liste d'emojis aléatoire
-            await self.react_to_msg(message, random.choice(self.ReactEmojis))
-        
-        # Si le message qui vient d'être envoyer commence par "!raffle"
-        elif message.content.startswith('!raffle'):
-            # Attend un nombre aléatoire choisit entre 30 et 60 secondes
-            await asyncio.sleep(random.randint(30, 60))  
-            # Dit a l'utilisateur qu'on tente de réagir a un message de !raffle avec l'url du message
-            print(f"Tente de réagir a un message de !raffle : {message.jump_url}")
-            # Tente de réagir au message avec un emoji choisi aléatoirement parmis une liste d'emojis aléatoire
-            await self.react_to_msg(message, random.choice(self.ReactEmojis))
+        #  si l'auteur est cardano tip bot ↓        et ↓ si il y a giveaway ou raffle dans le message ↓
+        if (message.author.id == 937406991050092564) and (("giveaway" or "raffle") in message.content):
+            await asyncio.sleep(random.randint(30, 59))
+            # reagir au message avec un emoji random ↓
+            self.react_to_msg(message, random.choice(self.ReactEmojis))
 
-       
-     # Si l'url du channel du message qui vient d'être envoyer est celui du salon rumble royale du discord HOSKY
-        # TODO: Faire que ca check si celui qui envoit le msg est le bot Rumble Royale et pas le salon dans lequel le msg a été envoyer
-        elif message.channel.jump_url == "https://discord.com/channels/903302807346630656/1048439777625657365":
-            # Attend un nombre aléatoire choisit entre 30 et 60 secondes
-            await asyncio.sleep(random.randint(30, 60))  
-            # Dit a l'utilisateur qu'on tente de réagir a un message de Rumble Royale avec l'url du message
-            print(f"Tente de réagir a un message de Rumble Royale: {message.jump_url}")
-            # Tente de réagir au message avec la première réaction du message çad l'emoji pour participer
-            await self.react_to_msg(message, message.reactions[0])
     
     async def react_to_msg(self, msg, reaction_to_add, max_retries: int = 5, delay_seconds: int = 10):
         retry_count = 0
@@ -78,15 +57,6 @@ class GiveawayFarmerBot(discord.Client):
                 retry_count += 1
                 await asyncio.sleep(delay_seconds)
                 print(f"{retry_count}/{max_retries}: Échec pour rajouter une réaction au message {msg.jump_url}")
-
-    if  message.content.has('Giveaway')   
-        elif message.id.jump_url == "937406991050092564":
-            # attend un nombre aléatoire choisit entre 30 et 60 s
-             await asyncio.sleep(random.randint(30, 60))    
-             # Dit a l'utilisateur qu'on tente de réagir a un message de giveaway avec l'url du message
-             print(f"Tente de réagir a un message de /giveaway : {message.jump_url}")
-             # Tente de réagir au message avec la première réaction du message çad l'emoji pour participer
-             await self.react_to_msg(message, message.reactions[0])
 
 
 
