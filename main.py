@@ -39,6 +39,12 @@ class GiveawayFarmerBot(discord.Client):
             await asyncio.sleep(random.randint(30, 59))
             # reagir au message avec un emoji random ↓
             self.react_to_msg(message, random.choice(self.ReactEmojis))
+        
+        # rumble royale avec le même pattern
+        elif (message.author.id == 693167035068317736) and ("Click the emoji below to join!" in message.content):
+            await asyncio.sleep(random.randint(30, 59))
+            # reagir au message avec un emoji random ↓
+            self.react_to_msg(message, random.choice(self.ReactEmojis))
 
     
     async def react_to_msg(self, msg, reaction_to_add, max_retries: int = 5, delay_seconds: int = 10):
