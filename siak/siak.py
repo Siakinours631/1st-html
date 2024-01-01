@@ -1,8 +1,13 @@
-def Chargerliste(emplacement_liste: str):
-    result = []
-    file = open(emplacement_liste)
-    for elt in file:
-        result.append(elt)
-    return result
+import keyboard
+import time
+import sys
 
-print(Chargerliste("fichier.txt"))
+def presskey():
+    while True:  # Création d'une boucle infinie
+        keyboard.press('e')  # Appuyer sur la touche "e"
+        time.sleep(0.01)  # Attendre un peu
+        keyboard.release('e')  # Relâcher la touche "e"
+
+        if keyboard.is_pressed('p'):  # Vérifier si la touche "p" est pressée
+            print("Le bouton 'P' a été pressé, stoppons cette folie !")
+            sys.exit()
