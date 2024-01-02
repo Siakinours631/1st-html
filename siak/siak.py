@@ -2,12 +2,18 @@ import keyboard
 import time
 import sys
 
-def presskey():
-    while True:  # Création d'une boucle infinie
-        keyboard.press('e')  # Appuyer sur la touche "e"
-        time.sleep(0.01)  # Attendre un peu
-        keyboard.release('e')  # Relâcher la touche "e"
 
-        if keyboard.is_pressed('p'):  # Vérifier si la touche "p" est pressée
-            print("Le bouton 'P' a été pressé, stoppons cette folie !")
+print("Programme lancé, appuyez sur 'p' pour arrêter.")
+
+def presskey():
+    
+    while True:
+        keyboard.press('e')
+        time.sleep(0.01)
+        keyboard.release('e')
+
+        if keyboard.is_pressed('p'):  # Ici on vérifie si 'p' est pressée
+            print("Arrêt du programme")
             sys.exit()
+
+presskey()
