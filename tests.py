@@ -9,7 +9,7 @@ def presskey():
     
     while True:
         keyboard.press('e')
-        time.sleep(0.01)
+        time.sleep(0.1)
         keyboard.release('e')
 
         if keyboard.is_pressed('p'):  # Ici on vérifie si 'p' est pressée

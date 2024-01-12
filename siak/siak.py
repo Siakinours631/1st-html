@@ -1,19 +1,22 @@
 import keyboard
-import time
+import mouse 
+import time 
 import sys
+import pyautogui
+
+#Point(x=379, y=989)
+#Point(x=936, y=926)
+#Point(x=1350, y=988)
+#
+#
 
 
-print("Programme lancé, appuyez sur 'p' pour arrêter.")
+def press_key():
+    print(pyautogui.position())
 
-def presskey():
-    
-    while True:
-        keyboard.press('e')
-        time.sleep(0.01)
-        keyboard.release('e')
-
-        if keyboard.is_pressed('p'):  # Ici on vérifie si 'p' est pressée
-            print("Arrêt du programme")
-            sys.exit()
-
-presskey()
+while True:
+    keyboard.wait('!')
+    for i in range(1):
+        press_key()
+        print("programme lancé")
+        

@@ -5,31 +5,27 @@ import time
 import sys
 import pyautogui
 
-#1 Point(x=620, y=909)
-#2 Point(x=766, y=968)
-#3 Point(x=751, y=371)
-#4 Point(x=788, y=964)
+#Point(x=379, y=989)
+#Point(x=936, y=926)
+#Point(x=1350, y=988)
 
 def main_programm():
-    pyautogui.moveTo(620, 909)
+    pyautogui.moveTo(379,989, duration=2)
     mouse.click('left')
-    time.sleep(0.5)
-    pyautogui.moveTo(766,968)
+    time.sleep(1)
+    pyautogui.moveTo(936,926,duration=1.5)
     mouse.click('left')
-    time.sleep(0.5)
-    pyautogui.moveTo(751, 371)
+    time.sleep(1)
+    pyautogui.moveTo(1350,988,duration=1.5)
     mouse.click('left')
-    time.sleep(0.5)
-    pyautogui.moveTo(788, 964)
-    mouse.click('left')
-    time.sleep(0.5)
-
+    time.sleep(1)
+    
 
 while True:
+    print("appuyez sur ! pour lancer le programme.")
     keyboard.wait('!')
     while True:
         main_programm()
-        print("programme lancé")
         if keyboard.is_pressed('p'):  # Ici on vérifie si 'p' est pressée
             print("Arrêt du programme")
             sys.exit()
