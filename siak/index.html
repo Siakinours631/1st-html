@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <style>
+      html {
+    background-color: #100F13;
+  }
+
+  
+
+
+   h1, h2, p { 
+    color: #F91C1C; 
+    text-align: center;
+    font-size: bold
+  }
+    div#c1 {
+  background-color: green;
+  width: 34em;
+  }
+  
+    .Clink {
+  background-color: aqua;
+  width: 33.9em;
+  }
+  
+    div#espace {
+  background-color: #100F13;
+  width: 34em; /* ou la largeur que tu souhaites */
+  min-height: 5em; /* par exemple, ou la hauteur que tu préfères */
+  }
+
+    .Cx {
+  background-color: white;
+  border: 5px  groove orange; 
+  width: 532;
+ }
+
+    </style>
+   
+   <!-- balises de metadonnées -->
+    <title>FirstVideoGame</title>
+  </head>
+    
+    <body>
+      <h1>Rush hour</h1>
+      <h2>titi</h2>
+      <p>Welcome to Rush hour</p>
+
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%"> 
+       
+        <div>
+          <div class="Cx">container 1</div>  
+          <div id="c1" ><a href="titi.html" target="_blank">Click on me</a></div>
+
+        </div>
+        
+        <div>
+          
+          <div id="espace">
+          <div></div>  
+         
+
+        </div>
+
+        <div>
+          <div class="Cx">container 2</div>
+          <div id="c2" class="Clink"><a href="titi2.html" target="_blank">Click here for the game</a></div>
+
+        </div>
+
+        <div>
+       
+          <div class="Cx">container 3</div>
+          <div id="c3" class="Clink"><a href="#" onclick="alert('Ici tu as le block 3');">Click on me</a></div>
+
+        </div>             
+        <div >
+          
+          <div class="Cx">container 4</div>
+          <div id="c4" class="Clink"><a href="#" onclick="alert('Ici tu as le block 4');">Click on me</a></div>
+          
+        </div>    
+      </div>
+      
+      
+      <script>
+       //sert au code js
+        console.log(window.document.title);    
+     </script>
+    
+    </body>
+<!--cascading stylesheet-->
+</html>    
